@@ -1,3 +1,4 @@
+// Display and append the messages
 function appendMessage(sender, message, className) {
   var chatLog = document.getElementById("chat-log");
   var messageElem = document.createElement("div");
