@@ -1,4 +1,4 @@
-![image](https://github.com/DaeSikWoo/LLM-chat-system/assets/35883117/c2d91600-ac8f-4739-ab58-e764f35c926f)# LLM-chat-system
+# LLM-chat-system
 
 This is a code to implement a chat system based on LLM (Language Model) using the localGPT model developed by PromptEngineer (https://github.com/PromtEngineer/localGPT). The original code has been modified to include a conversational interface accessible through port 5000. Cribl solution documentation manual in PDF format has been loaded in the SOURCE_DOCUMENT to provide the necessary data.
 
