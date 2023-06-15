@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from service import initialize_qa
+import time
 
 app = Flask(__name__, static_folder='static')
 qa_instance = None
@@ -14,9 +15,12 @@ def index():
     initialize_qa_if_needed()
     if request.method == 'POST':
         query = request.form['query']
+        start_time = time.time()  # Measure the start time
         res = qa_instance(query)
         answer = res['result']
-        return jsonify({'answer': answer})  # Return JSON response
+        end_time = time.time()  # Measure the end time
+        response_time = end_time - start_time  # Calculate the response time
+        return jsonify({'answer': answer, 'response_time': response_time})  # Return JSON response with response time
     return render_template('index.html')
 
 if __name__ == "__main__":
