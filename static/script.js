@@ -16,7 +16,12 @@ function handleUserInput() {
 
   // Display the user message
   appendMessage("You", message, "user-message");
-
+  // Display the response time
+  var responseTimeElem = document.createElement("div");
+  responseTimeElem.innerHTML = "Response Time: " + responseTime.toFixed(2) + " seconds";
+  responseTimeElem.className = "response-time";
+  chatLog.appendChild(responseTimeElem);
+  
   // Send the user input to the Python backend for processing
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "/", true);
