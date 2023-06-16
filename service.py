@@ -7,6 +7,7 @@ import click
 
 from constants import CHROMA_SETTINGS, PERSIST_DIRECTORY
 
+# Select a model for text generation
 def load_model():
     model_id = "TheBloke/vicuna-7B-1.1-HF" #set language model
     tokenizer = LlamaTokenizer.from_pretrained(model_id)
@@ -23,6 +24,7 @@ def load_model():
     local_llm = HuggingFacePipeline(pipeline=pipe)
     return local_llm
 
+# load an embedding model, vector store and Setup the Question and Ansewer
 def initialize_qa():
     embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl", model_kwargs={"device": "cpu"}) # set resource : cuda for GPU
     db = Chroma(persist_directory=PERSIST_DIRECTORY, embedding_function=embeddings, client_settings=CHROMA_SETTINGS)
