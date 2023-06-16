@@ -34,7 +34,7 @@ def initialize_qa():
     return qa
 
 @click.command()
-@click.option('--device_type', default='cpu', help='device to run on') # cuda for GPU
+@click.option('--device_type', default='cpu', help='device to run on') # cuda for GPU / to chose device type to run
 def main(device_type):
     initialize_qa()
 
