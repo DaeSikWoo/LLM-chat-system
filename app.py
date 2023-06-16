@@ -10,6 +10,7 @@ def initialize_qa_if_needed():
     if qa_instance is None:
         qa_instance = initialize_qa()
 
+# where receive query and output response
 @app.route('/', methods=['GET', 'POST'])
 def index():
     initialize_qa_if_needed()
@@ -18,6 +19,7 @@ def index():
         start_time = time.time()  # Measure the start time
         res = qa_instance(query)
         answer = res['result']
+        #answer = res # to verify all result
         end_time = time.time()  # Measure the end time
         response_time = end_time - start_time  # Calculate the response time
         return jsonify({'answer': answer, 'response_time': response_time})  # Return JSON response with response time
