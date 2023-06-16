@@ -24,9 +24,9 @@ def load_model():
     local_llm = HuggingFacePipeline(pipeline=pipe)
     return local_llm
 
-# load an embedding model, vector store and Setup the Question and Ansewer
+# Load an embedding model, vector store, and Setup the Question and Answer
 def initialize_qa():
-    embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl", model_kwargs={"device": "cpu"}) # set resource : cuda for GPU
+    embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl", model_kwargs={"device": "cpu"}) # set device : cuda for GPU
     db = Chroma(persist_directory=PERSIST_DIRECTORY, embedding_function=embeddings, client_settings=CHROMA_SETTINGS)
     retriever = db.as_retriever()
     loaded_model = load_model()
